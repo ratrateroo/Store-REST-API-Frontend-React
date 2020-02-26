@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+
+:root {
+  --red: #D40424;
+  --white: #E9F0F7;
+  --light-blue: #AEC5D6;
+  --mid-blue: #223040;
+  --dark-blue: #101D29;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Work Sans', sans-serif;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "main-header"
+    "main-area"
+    "main-footer";
+}
