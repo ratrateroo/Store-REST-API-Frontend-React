@@ -6,9 +6,11 @@ import "./index.css";
 import App from "./App";
 
 ReactDOM.render(
-    <BrowserRouter>
-        <App />, document.getElementById("root"));
-    </BrowserRouter>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
