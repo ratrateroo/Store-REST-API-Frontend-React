@@ -35,6 +35,9 @@ const header = props => (
           </li>
         </ul>
       </div>
+      <div class="mobile-button">
+        <div class="mobile-burger"></div>
+      </div>
     </nav>
   </header>
 );
