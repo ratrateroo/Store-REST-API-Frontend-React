@@ -33,9 +33,6 @@ const mainNavigation = props => (
         </li>
       </ul>
     </div>
-    <div className="mobile-button">
-      <div className="mobile-burger"></div>
-    </div>
   </nav>
 );
 
