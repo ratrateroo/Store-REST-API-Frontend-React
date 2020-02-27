@@ -8,7 +8,7 @@ const Modal = props => (
     <header class="modal__header">
       <h1>Modal Title</h1>
     </header>
-    <div class="modal__conent">Modal Content</div>
+    <div class="modal__content">Modal Content</div>
     <div class="modal__actions">
       <button class="button">Cancel</button>
       <button class="button">Accept</button>

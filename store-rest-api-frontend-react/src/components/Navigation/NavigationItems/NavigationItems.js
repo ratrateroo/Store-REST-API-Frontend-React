@@ -4,7 +4,7 @@ import "./NavigationItems.css";
 
 const navigationItems = props => (
   <li class="navigation-item mobile">
-    <NavLink href="#">Links</NavLink>
+    <NavLink to="#">Links</NavLink>
   </li>
 );
 
