@@ -1,69 +1,65 @@
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    grid-area: main-header;
+.mobile-button {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 5rem;
-    background: var(--red);
-    transition: 0.2s;
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    border: 3px solid #fff;
+    overflow: hidden;
+    margin-right: 2rem;
 }
 
-
-
-
-
-.navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.mobile-burger {
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
 }
 
-
-
-.navigation__links {
-    display: flex;
-    padding: 0.3rem;
-}
-
-.navigation__link {
-    list-style: none;
-    margin: 0.3rem 2rem;
-}
-
-.navigation__link a {
-    font-size: 1.2em;
-    text-decoration: none;
-    color: var(--white);
-    font-weight: bold;
-}
-
-.navigation__link a:hover {
-    transition: 0.3s;
-    color: var(--dark-blue);
+.mobile-burger::before,
+.mobile-burger::after {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
 
 }
 
-.sticky {
-    position: fixed;
-    height: 60px;
-    background: var(--mid-blue);
-    transition: 0.6s;
-
+.mobile-burger::before {
+    transform: translateY(-10px);
 }
 
-.sticky .navigation__logo h1 {
-    margin: 0 1rem;
-    padding: 1rem;
-    background: var(--red);
-    color: var(--dark-blue);
+.mobile-burger::after {
+    transform: translateY(10px);
 }
 
-.sticky .navigation__link a {
-    text-decoration: none;
-    color: var(--white);
+/* Animation */
+
+.mobile-button.open .mobile-burger {
+    transform: translateX(-30px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.mobile-button.open .mobile-burger::before {
+    transform: rotate(45deg) translate(21px, -21px);
+}
+
+.mobile-button.open .mobile-burger::after {
+    transform: rotate(-45deg) translate(21px, 21px);
+}
+
+@media (min-width: 768px) {
+
+    .mobile-button {
+        display: none;
+    }
 }
