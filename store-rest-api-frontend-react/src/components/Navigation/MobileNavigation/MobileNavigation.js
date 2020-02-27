@@ -4,9 +4,14 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 import "./MobileNavigation.css";
 
 const mobileNavigation = props => (
-  <nav class="mobile-navigation open">
-    <ul class="mobile-navigation__items">
-      <NavigationItems />
+  <nav className={["mobile-navigation", props.open ? "open" : ""].join(" ")}>
+    <ul
+      className={[
+        "mobile-navigation__items",
+        props.mobile ? "mobile" : ""
+      ].join(" ")}
+    >
+      <NavigationItems mobile />
     </ul>
   </nav>
 );

@@ -6,7 +6,10 @@ import "./Backdrop.css";
 
 const backdrop = props =>
   ReactDOM.createPortal(
-    <div id="backdrop" class="backdrop"></div>,
+    <div
+      className={["backdrop", props.open ? "open" : ""].join(" ")}
+      onClick={props.onClick}
+    ></div>,
     document.getElementById("backdrop-root")
   );
 export default backdrop;

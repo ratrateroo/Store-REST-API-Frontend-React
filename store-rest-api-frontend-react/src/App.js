@@ -2,13 +2,19 @@ import React, { Component, Fragment } from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
-
+import Backdrop from "./components/Backdrop/Backdrop";
 import Header from "./components/Header/Header";
 import "./App.css";
 import MainNavigation from "./components/Navigation/MainNavigation/MainNavigation";
 import MobileNavigation from "./components/Navigation/MobileNavigation/MobileNavigation";
+import backdrop from "./components/Backdrop/Backdrop";
 
 class App extends React.Component {
+  state = {
+    showBackdrop: false,
+    showMobileNav: false
+  };
+
   componentDidMount() {
     window.addEventListener("scroll", this.handleScrollToElement);
   }
@@ -22,16 +28,32 @@ class App extends React.Component {
     const header = document.querySelector(".header");
     header.classList.toggle("sticky", window.scrollY > 0);
   }
+
+  mobileNavHandler = isOpen => {
+    this.setState({ showMobileNav: isOpen, showBackdrop: isOpen });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ showBackdrop: false, showMobileNav: false, error: null });
+  };
+
   render() {
     return (
       <Fragment>
+        {this.state.showBackdrop && (
+          <Backdrop onClick={this.backdropClickHandler} />
+        )}
         <Layout
           header={
             <Header>
-              <MainNavigation />
+              <MainNavigation
+                onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
+              />
             </Header>
           }
-          mobileNav={<MobileNavigation />}
+          mobileNav={
+            <MobileNavigation open={this.state.showMobileNav} mobile />
+          }
         />
       </Fragment>
     );
