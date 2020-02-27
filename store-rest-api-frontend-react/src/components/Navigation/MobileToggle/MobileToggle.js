@@ -1,7 +1,6 @@
 import React from "react";
 
-import MainNavigation from "../Navigation/MainNavigation/MainNavigation";
-import "./Header.css";
+import "./MobileToggle.css";
 
 const mobileToggle = props => (
   <div className="mobile-button">
