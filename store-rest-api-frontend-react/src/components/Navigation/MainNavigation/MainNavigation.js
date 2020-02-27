@@ -1,6 +1,7 @@
 import React from "react";
 
 import Logo from "../../Logo/Logo";
+import MobileToggle from "../MobileToggle/MobileToggle";
 import "./MainNavigation.css";
 
 const mainNavigation = props => (
@@ -33,6 +34,7 @@ const mainNavigation = props => (
         </li>
       </ul>
     </div>
+    <MobileToggle />
   </nav>
 );
 
