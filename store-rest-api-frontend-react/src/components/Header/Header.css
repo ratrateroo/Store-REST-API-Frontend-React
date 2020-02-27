@@ -1,65 +1,14 @@
-.mobile-button {
-    position: relative;
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    grid-area: main-header;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    min-width: 50px;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    border: 3px solid #fff;
-    overflow: hidden;
-    margin-right: 2rem;
-}
-
-.mobile-burger {
-    width: 30px;
-    height: 3px;
-    background: #fff;
-    transition: all 0.3s ease-in-out;
-}
-
-.mobile-burger::before,
-.mobile-burger::after {
-    display: inline-block;
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 3px;
-    background: #fff;
-    transition: all 0.3s ease-in-out;
-
-}
-
-.mobile-burger::before {
-    transform: translateY(-10px);
-}
-
-.mobile-burger::after {
-    transform: translateY(10px);
-}
-
-/* Animation */
-
-.mobile-button.open .mobile-burger {
-    transform: translateX(-30px);
-    background: transparent;
-    box-shadow: none;
-}
-
-.mobile-button.open .mobile-burger::before {
-    transform: rotate(45deg) translate(21px, -21px);
-}
-
-.mobile-button.open .mobile-burger::after {
-    transform: rotate(-45deg) translate(21px, 21px);
-}
-
-@media (min-width: 768px) {
-
-    .mobile-button {
-        display: none;
-    }
+    width: 100vw;
+    height: 5rem;
+    background: var(--red);
+    transition: 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }

@@ -10,7 +10,7 @@
 
     border: 3px solid #fff;
     overflow: hidden;
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
 .mobile-burger {
@@ -54,4 +54,11 @@
 
 .mobile-button.open .mobile-burger::after {
     transform: rotate(-45deg) translate(21px, 21px);
+}
+
+@media (min-width: 768px) {
+
+    .mobile-button {
+        display: none;
+    }
 }
