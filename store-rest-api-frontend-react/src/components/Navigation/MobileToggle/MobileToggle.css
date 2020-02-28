@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    min-width: 50px;
     height: 50px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -11,6 +11,7 @@
     border: 3px solid #fff;
     overflow: hidden;
     margin-right: 2rem;
+    margin-left: 2rem;
 }
 
 .mobile-burger {
