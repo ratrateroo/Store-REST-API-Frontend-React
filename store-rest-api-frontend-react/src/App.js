@@ -15,7 +15,8 @@ class App extends React.Component {
     this.state = {
       scrolled: false,
       showBackdrop: false,
-      showMobileNav: false
+      showMobileNav: false,
+      isAuth: true
     };
   }
 
@@ -64,6 +65,7 @@ class App extends React.Component {
               <MainNavigation
                 onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
                 open={this.state.showMobileNav}
+                isAuth={this.state.isAuth}
               />
             </Header>
           }

@@ -1,9 +1,14 @@
 .navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     width: 100%;
     z-index: 160;
+}
+
+.navigation__nav {
+    display: flex;
+    justify-content: space-between;
 }
 
 
