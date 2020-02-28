@@ -18,7 +18,7 @@ class App extends Component {
       scrolled: false,
       showBackdrop: false,
       showMobileNav: false,
-      isAuth: true,
+      isAuth: false,
       authLoading: false
     };
   }
@@ -68,6 +68,23 @@ class App extends Component {
 
   backdropClickHandler = () => {
     this.setState({ showBackdrop: false, showMobileNav: false, error: null });
+  };
+
+  logoutHandler = () => {
+    this.setState({ isAuth: false, token: null });
+    localStorage.removeItem("token");
+    localStorage.removeItem("expiryDate");
+    localStorage.removeItem("userId");
+  };
+
+  setAutoLogout = milliseconds => {
+    setTimeout(() => {
+      this.logoutHandler();
+    }, milliseconds);
+  };
+
+  errorHandler = () => {
+    this.setState({ error: null });
   };
 
   render() {
