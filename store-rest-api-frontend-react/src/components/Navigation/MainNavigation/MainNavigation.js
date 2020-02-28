@@ -14,15 +14,15 @@ const mainNavigation = props => (
         <li className="navigation__link">
           <a href="products.html">Products</a>
         </li>
-        {/* <li className="navigation__link">
+        <li className="navigation__link">
           <a href="myproducts.html">My Products</a>
         </li>
         <li className="navigation__link">
           <a href="add-product.html">Add Product</a>
-        </li> */}
+        </li>
       </ul>
     </div>
-    <div className="navigation__access">
+    {/* <div className="navigation__access">
       <ul className="navigation__links">
         <li className="navigation__link">
           <a href="login.html">Login</a>
@@ -34,7 +34,7 @@ const mainNavigation = props => (
           <a href="logout.html">Logout</a>
         </li>
       </ul>
-    </div>
+    </div> */}
     <MobileToggle onOpen={props.onOpenMobileNav} open={props.open} />
     <MobileNavigation {...props} />
   </nav>
