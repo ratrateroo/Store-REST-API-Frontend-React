@@ -4,19 +4,22 @@ import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
 import Header from "./components/Header/Header";
-import "./App.css";
 import MainNavigation from "./components/Navigation/MainNavigation/MainNavigation";
 import MobileNavigation from "./components/Navigation/MobileNavigation/MobileNavigation";
-import backdrop from "./components/Backdrop/Backdrop";
 
-class App extends React.Component {
+import LoginPage from "./pages/Auth/Login";
+import SignupPage from "./pages/Auth/Signup";
+import "./App.css";
+
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       scrolled: false,
       showBackdrop: false,
       showMobileNav: false,
-      isAuth: true
+      isAuth: true,
+      authLoading: false
     };
   }
 
@@ -54,6 +57,33 @@ class App extends React.Component {
   };
 
   render() {
+    let routes = (
+      <Switch>
+        <Route
+          path="/"
+          exact
+          render={props => (
+            <LoginPage
+              {...props}
+              onLogin={this.loginHandler}
+              loading={this.state.authLoading}
+            />
+          )}
+        />
+        <Route
+          path="/signup"
+          exact
+          render={props => (
+            <SignupPage
+              {...props}
+              onSignup={this.signupHandler}
+              loading={this.state.authLoading}
+            />
+          )}
+        />
+        <Redirect to="/" />
+      </Switch>
+    );
     return (
       <Fragment>
         {this.state.showBackdrop && (
@@ -78,6 +108,7 @@ class App extends React.Component {
             />
           }
         />
+        {routes}
       </Fragment>
     );
   }
