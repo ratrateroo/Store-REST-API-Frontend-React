@@ -6,7 +6,8 @@ import Backdrop from "./components/Backdrop/Backdrop";
 import Header from "./components/Header/Header";
 import MainNavigation from "./components/Navigation/MainNavigation/MainNavigation";
 import MobileNavigation from "./components/Navigation/MobileNavigation/MobileNavigation";
-
+import ErrorHandler from "./components/ErrorHandler/ErrorHandler";
+import FeedPage from "./pages/Feed/Feed";
 import LoginPage from "./pages/Auth/Login";
 import SignupPage from "./pages/Auth/Signup";
 import "./App.css";
@@ -19,7 +20,10 @@ class App extends Component {
       showBackdrop: false,
       showMobileNav: false,
       isAuth: false,
-      authLoading: false
+      authLoading: false,
+      token: null,
+      userId: null,
+      error: null
     };
   }
 
@@ -115,11 +119,37 @@ class App extends Component {
         <Redirect to="/" />
       </Switch>
     );
+
+    if (this.state.isAuth) {
+      routes = (
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={props => (
+              <FeedPage userId={this.state.userId} token={this.state.token} />
+            )}
+          />
+          <Route
+            path="/:postId"
+            render={props => (
+              <SinglePostPage
+                {...props}
+                userId={this.state.userId}
+                token={this.state.token}
+              />
+            )}
+          />
+          <Redirect to="/" />
+        </Switch>
+      );
+    }
     return (
       <Fragment>
         {this.state.showBackdrop && (
           <Backdrop onClick={this.backdropClickHandler} />
         )}
+        <ErrorHandler error={this.state.error} onHandle={this.errorHandler} />
         <Layout
           header={
             <Header sticky={this.state.scrolled}>
