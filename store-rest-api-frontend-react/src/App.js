@@ -10,10 +10,20 @@ import MobileNavigation from "./components/Navigation/MobileNavigation/MobileNav
 import backdrop from "./components/Backdrop/Backdrop";
 
 class App extends React.Component {
-  state = {
-    showBackdrop: false,
-    showMobileNav: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      scrolled: false,
+      showBackdrop: false,
+      showMobileNav: false
+    };
+  }
+
+  // state = {
+  //   scrolled: false,
+  //   showBackdrop: false,
+  //   showMobileNav: false
+  // };
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScrollToElement);
@@ -23,11 +33,16 @@ class App extends React.Component {
     window.removeEventListener("scroll", this.handleScrollToElement);
   }
 
-  handleScrollToElement(event) {
-    console.log("Fired " + event);
-    const header = document.querySelector(".header");
-    header.classList.toggle("sticky", window.scrollY > 0);
-  }
+  handleScrollToElement = () => {
+    const isTop = window.scrollY > 0;
+    if (isTop) {
+      this.setState({ scrolled: true });
+    } else {
+      this.setState({ scrolled: false });
+    }
+    //   const header = document.querySelector(".header");
+    //   header.classList.toggle("sticky", window.scrollY > 0);
+  };
 
   mobileNavHandler = isOpen => {
     this.setState({ showMobileNav: isOpen, showBackdrop: isOpen });
@@ -45,7 +60,7 @@ class App extends React.Component {
         )}
         <Layout
           header={
-            <Header>
+            <Header sticky={this.state.scrolled}>
               <MainNavigation
                 onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
               />
