@@ -35,7 +35,7 @@ const mainNavigation = props => (
         </li>
       </ul>
     </div>
-    <MobileToggle onOpen={props.onOpenMobileNav} />
+    <MobileToggle onOpen={props.onOpenMobileNav} open={props.open} />
     <MobileNavigation {...props} />
   </nav>
 );

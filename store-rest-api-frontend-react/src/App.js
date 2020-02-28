@@ -63,6 +63,7 @@ class App extends React.Component {
             <Header sticky={this.state.scrolled}>
               <MainNavigation
                 onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
+                open={this.state.showMobileNav}
               />
             </Header>
           }
