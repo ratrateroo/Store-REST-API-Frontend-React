@@ -1,4 +1,4 @@
-.navigation-item {
+/* .navigation-item {
     padding: 0 1.5rem;
 
 }
@@ -11,21 +11,29 @@
     width: 100%;
     display: inline-block;
 
-}
+} */
 
-.navigation-item.mobile {
+.navigation__link.mobile {
+    height: 2rem;
     font-size: 1.75rem;
     margin: 0.5rem 0;
-    padding: 0.5rem;
     width: 100%;
-    display: inline-block;
+    display: block;
+
 }
 
-.navigation-item.mobile a {
+.navigation__link.mobile a {
     color: var(--white);
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;
+    width: 100%;
+    transition: all 1s ease-in-out;
+    padding-left: 1rem;
+    border-radius: 0.5rem;
 }
 
-.navigation-item a:hover {
+.navigation__link.mobile a:hover {
     background: var(--white);
     color: var(--mid-blue);
     width: 100%;

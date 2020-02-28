@@ -70,7 +70,12 @@ class App extends React.Component {
             </Header>
           }
           mobileNav={
-            <MobileNavigation open={this.state.showMobileNav} mobile />
+            <MobileNavigation
+              open={this.state.showMobileNav}
+              mobile
+              onChooseItem={this.mobileNavHandler.bind(this, false)}
+              isAuth={this.state.isAuth}
+            />
           }
         />
       </Fragment>

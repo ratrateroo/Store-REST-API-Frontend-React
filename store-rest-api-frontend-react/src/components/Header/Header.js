@@ -7,7 +7,7 @@ const header = props => (
     // className="header"
     className={["header", props.sticky ? "sticky" : ""].join(" ")}
   >
-    {props.children}{" "}
+    {props.children}
   </header>
 );
 

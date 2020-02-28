@@ -11,7 +11,19 @@ const mobileNavigation = props => (
         props.mobile ? "mobile" : ""
       ].join(" ")}
     >
-      <NavigationItems mobile />
+      <NavigationItems
+        mobile
+        onChoose={props.onChooseItem}
+        isAuth={props.isAuth}
+        purpose="product"
+      />
+
+      <NavigationItems
+        mobile
+        onChoose={props.onChooseItem}
+        isAuth={props.isAuth}
+        purpose="user"
+      />
     </ul>
   </nav>
 );
