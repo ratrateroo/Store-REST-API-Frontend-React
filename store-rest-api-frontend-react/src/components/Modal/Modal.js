@@ -1,19 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import Button from "../Button/Button";
 import "./Modal.css";
 
-const Modal = props => (
-  <div class="modal">
-    <header class="modal__header">
-      <h1>Modal Title</h1>
-    </header>
-    <div class="modal__content">Modal Content</div>
-    <div class="modal__actions">
-      <button class="button">Cancel</button>
-      <button class="button">Accept</button>
-    </div>
-  </div>
-);
+const modal = props =>
+  ReactDOM.createPortal(
+    <div className="modal">
+      <header className="modal__header">
+        <h1>{props.title}</h1>
+      </header>
+      <div className="modal__content">{props.children}</div>
+      <div className="modal__actions">
+        <Button design="danger" mode="flat" onClick={props.onCancelModal}>
+          Cancel
+        </Button>
+        <Button
+          mode="raised"
+          onClick={props.onAcceptModal}
+          disabled={!props.acceptEnabled}
+          loading={props.isLoading}
+        >
+          Accept
+        </Button>
+      </div>
+    </div>,
+    document.getElementById("modal-root")
+  );
 
-export default Modal;
+export default modal;
