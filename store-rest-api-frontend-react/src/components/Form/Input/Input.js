@@ -4,13 +4,18 @@ import "./Input.css";
 
 const input = props => (
   <div className="input">
-    {props.label && <label htmlFor={props.id}>{props.label}</label>}
+    {props.label && (
+      <label className="form__label" htmlFor={props.id}>
+        {props.label}
+      </label>
+    )}
 
     {props.control === "input" && (
       <input
         className={[
           !props.valid ? "invalid" : "valid",
-          props.touched ? "touched" : "untouched"
+          props.touched ? "touched" : "untouched",
+          "form__input"
         ].join(" ")}
         type={props.type}
         id={props.id}

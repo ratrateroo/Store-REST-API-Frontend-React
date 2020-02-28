@@ -67,6 +67,7 @@ class Login extends Component {
     return (
       <Auth>
         <form
+          className="main__form"
           onSubmit={e =>
             this.props.onLogin(e, {
               email: this.state.loginForm.email.value,
@@ -98,6 +99,18 @@ class Login extends Component {
           />
           <Button design="raised" type="submit" loading={this.props.loading}>
             Login
+          </Button>
+          <Button design="flat" type="submit" loading={this.props.loading}>
+            Flat
+          </Button>
+          <Button design="accent" type="submit" loading={this.props.loading}>
+            Accent
+          </Button>
+          <Button design="danger" type="submit" loading={this.props.loading}>
+            Danger
+          </Button>
+          <Button design="success" type="submit" loading={this.props.loading}>
+            Success
           </Button>
         </form>
       </Auth>

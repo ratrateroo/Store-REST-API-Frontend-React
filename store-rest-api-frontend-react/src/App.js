@@ -96,7 +96,7 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route
-          path="/"
+          path="/login"
           exact
           render={props => (
             <LoginPage
@@ -169,8 +169,8 @@ class App extends Component {
               isAuth={this.state.isAuth}
             />
           }
+          routes={routes}
         />
-        {routes}
       </Fragment>
     );
   }
