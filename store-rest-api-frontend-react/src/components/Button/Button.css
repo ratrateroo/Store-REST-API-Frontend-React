@@ -1,7 +1,6 @@
 .button {
   font: inherit;
-  border: 1px solid var(--red);
-  color: var(--white);
+
   background: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -35,13 +34,16 @@
 }
 
 .button--flat {
-  border: none;
+
+  color: var(--red);
+  border: var(--red);
 }
 
 .button--flat:hover,
 .button--flat:active {
   background: var(--mid-blue);
-  color: var(--red);
+  color: var(--white);
+
 }
 
 .button--raised {

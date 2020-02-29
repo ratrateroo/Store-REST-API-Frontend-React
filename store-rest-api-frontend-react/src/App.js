@@ -187,7 +187,7 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route
-          path="/login"
+          path="/"
           exact
           render={props => (
             <LoginPage

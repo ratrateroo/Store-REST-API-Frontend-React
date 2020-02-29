@@ -60,6 +60,16 @@
 
 }
 
+.form__input {
+    line-height: 2rem;
+    height: 2rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    border: var(--mid-blue) 1px solid;
+    padding: 0 0.5rem;
+
+}
+
 .main__form .form__button {
     margin-top: 1rem;
     font-size: 1.2rem;
