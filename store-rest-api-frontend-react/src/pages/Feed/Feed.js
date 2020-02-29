@@ -23,7 +23,7 @@ class Feed extends Component {
   };
 
   componentDidMount() {
-    fetch("https://messages-rest-api-backend-node.herokuapp.com/auth/status/", {
+    fetch("http://localhost:8080/auth/status/", {
       headers: {
         Authorization: "Bearer " + this.props.token
       }
@@ -40,9 +40,7 @@ class Feed extends Component {
       .catch(this.catchError);
 
     this.loadPosts();
-    const socket = openSocket(
-      "https://messages-rest-api-backend-node.herokuapp.com/"
-    );
+    const socket = openSocket("http://localhost:8080/");
     socket.on("posts", data => {
       if (data.action === "create") {
         this.addPost(data.post);
@@ -165,12 +163,10 @@ class Feed extends Component {
     formData.append("title", postData.title);
     formData.append("content", postData.content);
     formData.append("image", postData.image);
-    let url = "https://messages-rest-api-backend-node.herokuapp.com/feed/post";
+    let url = "http://localhost:8080/feed/post";
     let method = "POST";
     if (this.state.editPost) {
-      url =
-        "https://messages-rest-api-backend-node.herokuapp.com/feed/post/" +
-        this.state.editPost._id;
+      url = "http://localhost:8080/feed/post/" + this.state.editPost._id;
       method = "PUT";
     }
 
@@ -232,16 +228,12 @@ class Feed extends Component {
 
   deletePostHandler = postId => {
     this.setState({ postsLoading: true });
-    fetch(
-      "https://messages-rest-api-backend-node.herokuapp.com/feed/post/" +
-        postId,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: "Bearer " + this.props.token
-        }
+    fetch("http://localhost:8080/feed/post/" + postId, {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + this.props.token
       }
-    )
+    })
       .then(res => {
         if (res.status !== 200 && res.status !== 201) {
           throw new Error("Deleting a post failed!");
