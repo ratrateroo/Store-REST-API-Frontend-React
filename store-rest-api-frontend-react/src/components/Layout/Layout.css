@@ -1,6 +1,6 @@
 .main-area {
   display: flex;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   align-items: center;
   width: 100vw;

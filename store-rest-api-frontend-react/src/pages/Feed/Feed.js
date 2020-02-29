@@ -96,15 +96,11 @@ class Feed extends Component {
       page--;
       this.setState({ postPage: page });
     }
-    fetch(
-      "https://messages-rest-api-backend-node.herokuapp.com/feed/posts?page=" +
-        page,
-      {
-        headers: {
-          Authorization: "Bearer " + this.props.token
-        }
+    fetch("http://localhost:8080/feed/posts" + page, {
+      headers: {
+        Authorization: "Bearer " + this.props.token
       }
-    )
+    })
       .then(res => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch posts.");
