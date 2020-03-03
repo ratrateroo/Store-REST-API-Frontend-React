@@ -126,6 +126,7 @@ class App extends Component {
         localStorage.setItem("token", resData.token);
         localStorage.setItem("userId", resData.userId);
         const remainingMilliseconds = 60 * 60 * 1000;
+
         const expiryDate = new Date(
           new Date().getTime() + remainingMilliseconds
         );
@@ -250,6 +251,7 @@ class App extends Component {
               <MainNavigation
                 onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
                 open={this.state.showMobileNav}
+                onLogout={this.logoutHandler}
                 isAuth={this.state.isAuth}
               />
             </Header>
@@ -260,6 +262,7 @@ class App extends Component {
               mobile
               onChooseItem={this.mobileNavHandler.bind(this, false)}
               isAuth={this.state.isAuth}
+              onLogout={this.logoutHandler}
             />
           }
           routes={routes}

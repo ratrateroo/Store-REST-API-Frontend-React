@@ -56,7 +56,13 @@ const navigationItems = props => {
               " "
             )}
           >
-            <NavLink to={item.link} exact onClick={props.onChoose}>
+            <NavLink
+              to={item.link}
+              exact
+              onClick={
+                item.text === "Log Out" ? props.onLogout : props.onChoose
+              }
+            >
               {item.text}
             </NavLink>
           </li>
@@ -79,7 +85,13 @@ const navigationItems = props => {
               " "
             )}
           >
-            <NavLink to={item.link} exact onClick={props.onChoose}>
+            <NavLink
+              to={item.link}
+              exact
+              onClick={
+                item.text === "Log Out" ? props.onLogout : props.onChoose
+              }
+            >
               {item.text}
             </NavLink>
           </li>
