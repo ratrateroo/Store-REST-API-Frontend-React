@@ -95,9 +95,9 @@ class Feed extends Component {
       this.setState({ postPage: page });
     }
     fetch("http://localhost:8080/feed/posts?page=" + page, {
-      // headers: {
-      //   Authorization: "Bearer " + this.props.token
-      // }
+      headers: {
+        Authorization: "Bearer " + this.props.token
+      }
     })
       .then(res => {
         if (res.status !== 200) {
@@ -172,10 +172,10 @@ class Feed extends Component {
 
     fetch(url, {
       method: method,
-      body: formData
-      // headers: {
-      //   Authorization: "Bearer " + this.props.token
-      // }
+      body: formData,
+      headers: {
+        Authorization: "Bearer " + this.props.token
+      }
     })
       .then(res => {
         if (res.status !== 200 && res.status !== 201) {
@@ -193,18 +193,17 @@ class Feed extends Component {
           createdAt: resData.post.createdAt
         };
         this.setState(prevState => {
-          //let updatedPosts = [...prevState.posts];
-          // if (prevState.editPost) {
-          //   const postIndex = prevState.posts.findIndex(
-          //     p => p._id === prevState.editPost._id
-          //   );
-          //   updatedPosts[postIndex] = post;
-          // }
-          // else if (prevState.posts.length < 2) {
-          //   updatedPosts = prevState.posts.concat(post);
-          // }
+          let updatedPosts = [...prevState.posts];
+          if (prevState.editPost) {
+            const postIndex = prevState.posts.findIndex(
+              p => p._id === prevState.editPost._id
+            );
+            updatedPosts[postIndex] = post;
+          } else if (prevState.posts.length < 2) {
+            updatedPosts = prevState.posts.concat(post);
+          }
           return {
-            //posts: updatedPosts,
+            posts: updatedPosts,
             isEditing: false,
             editPost: null,
             editLoading: false
@@ -243,10 +242,10 @@ class Feed extends Component {
       .then(resData => {
         console.log(resData);
         this.loadPosts();
-        // this.setState(prevState => {
-        //   const updatedPosts = prevState.posts.filter(p => p._id !== postId);
-        //   return { posts: updatedPosts, postsLoading: false };
-        // });
+        this.setState(prevState => {
+          const updatedPosts = prevState.posts.filter(p => p._id !== postId);
+          return { posts: updatedPosts, postsLoading: false };
+        });
       })
       .catch(err => {
         console.log(err);
