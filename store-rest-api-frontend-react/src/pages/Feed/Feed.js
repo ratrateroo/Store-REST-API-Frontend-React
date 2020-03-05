@@ -260,6 +260,7 @@ class Feed extends Component {
     return (
       <Fragment>
         <ErrorHandler error={this.state.error} onHandle={this.errorHandler} />
+
         <FeedEdit
           editing={this.state.isEditing}
           selectedPost={this.state.editPost}
@@ -267,6 +268,7 @@ class Feed extends Component {
           onCancelEdit={this.cancelEditHandler}
           onFinishEdit={this.finishEditHandler}
         />
+
         <section className="feed__status">
           <form onSubmit={this.statusUpdateHandler}>
             <Input
@@ -281,11 +283,13 @@ class Feed extends Component {
             </Button>
           </form>
         </section>
+
         <section className="feed__control">
           <Button mode="raised" design="accent" onClick={this.newPostHandler}>
             New Post
           </Button>
         </section>
+
         <section className="feed">
           {this.state.postsLoading && (
             <div style={{ textAlign: "center", marginTop: "2rem" }}>

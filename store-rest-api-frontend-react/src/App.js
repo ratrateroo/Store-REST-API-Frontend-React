@@ -216,6 +216,13 @@ class App extends Component {
             />
           )}
         />
+
+        <Route
+          path="/products"
+          exact
+          render={props => <ProductsPage {...props} />}
+        />
+
         <Redirect to="/" />
       </Switch>
     );
@@ -228,17 +235,6 @@ class App extends Component {
             exact
             render={props => (
               <FeedPage userId={this.state.userId} token={this.state.token} />
-            )}
-          />
-
-          <Route
-            path="/products"
-            exact
-            render={props => (
-              <ProductsPage
-                userId={this.state.userId}
-                token={this.state.token}
-              />
             )}
           />
 

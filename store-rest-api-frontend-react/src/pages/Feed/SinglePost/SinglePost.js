@@ -13,6 +13,7 @@ class SinglePost extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
     const postId = this.props.match.params.postId;
     fetch("http://localhost:8080/feed/post/" + postId, {
       headers: {

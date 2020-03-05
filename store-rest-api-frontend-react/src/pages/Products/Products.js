@@ -22,11 +22,11 @@ class Products extends Component {
     editLoading: false
   };
 
-
-render() {
+  render() {
     return (
       <Fragment>
         <ErrorHandler error={this.state.error} onHandle={this.errorHandler} />
+
         <FeedEdit
           editing={this.state.isEditing}
           selectedPost={this.state.editPost}
@@ -34,6 +34,7 @@ render() {
           onCancelEdit={this.cancelEditHandler}
           onFinishEdit={this.finishEditHandler}
         />
+
         <section className="feed__status">
           <form onSubmit={this.statusUpdateHandler}>
             <Input
@@ -48,17 +49,20 @@ render() {
             </Button>
           </form>
         </section>
+
         <section className="feed__control">
           <Button mode="raised" design="accent" onClick={this.newPostHandler}>
             New Post
           </Button>
         </section>
+
         <section className="feed">
-          {this.state.postsLoading && (
+          {this.state.productsLoading && (
             <div style={{ textAlign: "center", marginTop: "2rem" }}>
               <Loader />
             </div>
           )}
+
           {this.state.posts.length <= 0 && !this.state.postsLoading ? (
             <p style={{ textAlign: "center" }}>No posts found.</p>
           ) : null}
