@@ -33,6 +33,71 @@ class Products extends Component {
     editLoading: false
   };
 
+  componentDidMount() {
+    fetch(
+      "http://localhost:8080/shop/products"
+      // , {
+      //   // headers: {
+      //   //   Authorization: "Bearer " + this.props.token
+      //   // }
+      // }
+    )
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error("Failed to fetch user status.");
+        }
+        return res.json();
+      })
+      .then(resData => {
+        // this.setState({ status: resData.status });
+        console.log(resData);
+      })
+      .catch(this.catchError);
+
+    this.loadProducts();
+  }
+
+  loadProducts = direction => {
+    if (direction) {
+      this.setState({ productsLoading: true, products: [] });
+    }
+    let page = this.state.productPage;
+    if (direction === "next") {
+      page++;
+      this.setState({ productPage: page });
+    }
+    if (direction === "previous") {
+      page--;
+      this.setState({ productPage: page });
+    }
+    fetch("http://localhost:8080/shop/products?page=" + page, {
+      // headers: {
+      //   Authorization: "Bearer " + this.props.token
+      // }
+    })
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error("Failed to fetch products.");
+        }
+        return res.json();
+      })
+      .then(resData => {
+        this.setState({
+          products: resData.products.map(product => {
+            return {
+              ...product,
+              imagePath: product.imageUrl
+            };
+          }),
+          totalProducts: resData.totalItems,
+          productsLoading: false
+        });
+
+        console.log(this.state.products);
+      })
+      .catch(this.catchError);
+  };
+
   render() {
     return (
       <Fragment>
