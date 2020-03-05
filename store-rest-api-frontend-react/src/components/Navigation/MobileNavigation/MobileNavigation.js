@@ -16,6 +16,7 @@ const mobileNavigation = props => (
         onChoose={props.onChooseItem}
         isAuth={props.isAuth}
         purpose="product"
+        onLogout={props.onLogout}
       />
 
       <NavigationItems
@@ -23,6 +24,7 @@ const mobileNavigation = props => (
         onChoose={props.onChooseItem}
         isAuth={props.isAuth}
         purpose="user"
+        onLogout={props.onLogout}
       />
     </ul>
   </nav>
