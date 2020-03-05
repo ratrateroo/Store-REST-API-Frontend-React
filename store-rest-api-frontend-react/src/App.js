@@ -36,6 +36,7 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScrollToElement);
+
     const token = localStorage.getItem("token");
     const expiryDate = localStorage.getItem("expiryDate");
     if (!token || !expiryDate) {
@@ -80,6 +81,7 @@ class App extends Component {
     localStorage.removeItem("token");
     localStorage.removeItem("expiryDate");
     localStorage.removeItem("userId");
+    console.log("Logout Clicked.");
   };
 
   setAutoLogout = milliseconds => {

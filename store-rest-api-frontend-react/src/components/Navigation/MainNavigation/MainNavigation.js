@@ -11,12 +11,20 @@ const mainNavigation = props => (
     <div className="navigation__nav">
       <div className="navigation__items products">
         <ul className="navigation__links">
-          <NavigationItems isAuth={props.isAuth} purpose="product" />
+          <NavigationItems
+            isAuth={props.isAuth}
+            purpose="product"
+            onLogout={props.onLogout}
+          />
         </ul>
       </div>
       <div className="navigation__items user">
         <ul className="navigation__links">
-          <NavigationItems isAuth={props.isAuth} purpose="user" />
+          <NavigationItems
+            isAuth={props.isAuth}
+            purpose="user"
+            onLogout={props.onLogout}
+          />
         </ul>
       </div>
     </div>

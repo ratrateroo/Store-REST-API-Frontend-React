@@ -36,7 +36,7 @@ const navItems = [
   {
     id: "logout ",
     text: "Log Out",
-    link: "/logout",
+    link: "",
     auth: true,
     navfor: "user"
   }
