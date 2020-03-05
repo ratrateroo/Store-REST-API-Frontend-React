@@ -7,7 +7,7 @@ const navItems = [
   {
     id: "products",
     text: "Products",
-    link: "/",
+    link: "/products",
     auth: false,
     navfor: "product"
   },

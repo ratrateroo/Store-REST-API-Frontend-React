@@ -12,8 +12,19 @@ import "./Products.css";
 
 class Products extends Component {
   state = {
-    isEditing: false,
-    products: [],
+    //isEditing: false,
+    products: [
+      {
+        _id: 123,
+        title: "product1",
+        price: 100,
+        description: "good condition",
+        imageUrl:
+          "https://media.cntraveler.com/photos/5c6429aa9189f70d8058705c/master/w_820,c_limit/Laucala%2520Island-2.jpg",
+        seller: "Mark",
+        postedOn: "2020-03-05T11:23:42.748+00:00"
+      }
+    ],
     totalProducts: 0,
     editProduct: null,
     status: "",
@@ -27,32 +38,32 @@ class Products extends Component {
       <Fragment>
         <ErrorHandler error={this.state.error} onHandle={this.errorHandler} />
 
-        <FeedEdit
+        {/* <FeedEdit
           editing={this.state.isEditing}
           selectedPost={this.state.editPost}
           loading={this.state.editLoading}
           onCancelEdit={this.cancelEditHandler}
           onFinishEdit={this.finishEditHandler}
-        />
+        /> */}
 
         <section className="feed__status">
           <form onSubmit={this.statusUpdateHandler}>
             <Input
               type="text"
-              placeholder="Your status"
+              placeholder="Search Products"
               control="input"
               onChange={this.statusInputChangeHandler}
               value={this.state.status}
             />
             <Button mode="flat" type="submit">
-              Update
+              Search
             </Button>
           </form>
         </section>
 
         <section className="feed__control">
           <Button mode="raised" design="accent" onClick={this.newPostHandler}>
-            New Post
+            Add New Product
           </Button>
         </section>
 
@@ -63,27 +74,30 @@ class Products extends Component {
             </div>
           )}
 
-          {this.state.posts.length <= 0 && !this.state.postsLoading ? (
-            <p style={{ textAlign: "center" }}>No posts found.</p>
+          {this.state.products.length <= 0 && !this.state.productsLoading ? (
+            <p style={{ textAlign: "center" }}>No products found.</p>
           ) : null}
-          {!this.state.postsLoading && (
+          {!this.state.productsLoading && (
             <Paginator
-              onPrevious={this.loadPosts.bind(this, "previous")}
-              onNext={this.loadPosts.bind(this, "next")}
-              lastPage={Math.ceil(this.state.totalPosts / 2)}
-              currentPage={this.state.postPage}
+            //onPrevious={this.loadPosts.bind(this, "previous")}
+            //onNext={this.loadPosts.bind(this, "next")}
+            //lastPage={Math.ceil(this.state.totalPosts / 2)}
+            //currentPage={this.state.postPage}
             >
-              {this.state.posts.map(post => (
+              {this.state.products.map(product => (
                 <Post
-                  key={post._id}
-                  id={post._id}
-                  author={post.creator.firstname}
-                  date={new Date(post.createdAt).toLocaleDateString("en-US")}
-                  title={post.title}
-                  image={post.imageUrl}
-                  content={post.content}
-                  onStartEdit={this.startEditPostHandler.bind(this, post._id)}
-                  onDelete={this.deletePostHandler.bind(this, post._id)}
+                  key={product._id}
+                  id={product._id}
+                  seller={product.seller}
+                  postedOn={new Date(product.postedOn).toLocaleDateString(
+                    "en-US"
+                  )}
+                  title={product.title}
+                  image={product.imageUrl}
+                  description={product.description}
+                  price={product.price}
+                  // onStartEdit={this.startEditPostHandler.bind(this, post._id)}
+                  // onDelete={this.deletePostHandler.bind(this, post._id)}
                 />
               ))}
             </Paginator>
