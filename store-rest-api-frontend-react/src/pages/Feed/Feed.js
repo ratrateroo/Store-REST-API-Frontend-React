@@ -204,8 +204,7 @@ class Feed extends Component {
           return {
             isEditing: false,
             editPost: null,
-            editLoading: false,
-            post: post
+            editLoading: false
           };
         });
       })
