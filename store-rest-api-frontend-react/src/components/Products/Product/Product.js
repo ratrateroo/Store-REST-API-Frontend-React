@@ -8,7 +8,7 @@ const product = props => (
     <header className="card__header">
       <h1 className="product__title">{props.title}</h1>
     </header>
-    <div class="card__image">
+    <div className="card__image">
       <Image imageUrl={props.image} contain />
     </div>
     <div className="card__content">

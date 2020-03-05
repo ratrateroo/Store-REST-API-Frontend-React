@@ -36,6 +36,7 @@ class Feed extends Component {
       })
       .then(resData => {
         this.setState({ status: resData.status });
+        console.log(resData);
       })
       .catch(this.catchError);
 
@@ -198,7 +199,7 @@ class Feed extends Component {
           _id: resData.post._id,
           title: resData.post.title,
           content: resData.post.content,
-          creator: resData.post.creator.firstname,
+          creator: resData.post.creator.name,
           createdAt: resData.post.createdAt
         };
         this.setState(prevState => {

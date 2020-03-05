@@ -138,7 +138,7 @@ class Products extends Component {
                     "en-US"
                   )}
                   title={product.title}
-                  image={product.imageUrl}
+                  image={"http://localhost:8080/" + product.imageUrl}
                   description={product.description}
                   price={product.price}
                   // onStartEdit={this.startEditPostHandler.bind(this, post._id)}
