@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import openSocket from "socket.io-client";
 
 import Post from "../../components/Feed/Post/Post";
+import Product from "../../components/Products/Product/Product";
 import Button from "../../components/Button/Button";
 import FeedEdit from "../../components/Feed/FeedEdit/FeedEdit";
 import Input from "../../components/Form/Input/Input";
@@ -111,28 +112,7 @@ class Products extends Component {
           onFinishEdit={this.finishEditHandler}
         /> */}
 
-        <section className="feed__status">
-          <form onSubmit={this.statusUpdateHandler}>
-            <Input
-              type="text"
-              placeholder="Search Products"
-              control="input"
-              onChange={this.statusInputChangeHandler}
-              value={this.state.status}
-            />
-            <Button mode="flat" type="submit">
-              Search
-            </Button>
-          </form>
-        </section>
-
-        <section className="feed__control">
-          <Button mode="raised" design="accent" onClick={this.newPostHandler}>
-            Add New Product
-          </Button>
-        </section>
-
-        <section className="feed">
+        <section className="products">
           {this.state.productsLoading && (
             <div style={{ textAlign: "center", marginTop: "2rem" }}>
               <Loader />
@@ -150,7 +130,7 @@ class Products extends Component {
             //currentPage={this.state.postPage}
             >
               {this.state.products.map(product => (
-                <Post
+                <Product
                   key={product._id}
                   id={product._id}
                   seller={product.seller}

@@ -34,3 +34,22 @@
         margin-right: auto;
     }
 }
+
+.product div {
+    display: block;
+    height: 200px;
+    width: 200px;
+    background: gray;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+
+}
+
+.product a {
+    text-decoration: none;
+    color: var(--red);
+    display: block;
+    background: black;
+    width: 200px;
+}

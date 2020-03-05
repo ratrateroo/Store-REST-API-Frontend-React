@@ -1,29 +1,29 @@
-.post {
-    margin: 1rem 0;
-    border: 1px solid #3b0062;
-    border-radius: 5px;
-    padding: 0.5rem;
+.product-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+    display: block;
 }
 
-.post__meta {
-    font-size: 1rem;
-    color: #707070;
-    margin: 0;
+.product-item {
+    width: 20rem;
+    max-width: 95%;
+    margin: 1rem;
 }
 
-.post__title {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-    color: #3b0062;
+.product__title {
+    font-size: 1.2rem;
+    text-align: center;
 }
 
-.post__image {
-    height: 15rem;
-    width: 100%;
+.product__price {
+    text-align: center;
+    color: #4d4d4d;
+    margin-bottom: 0.5rem;
 }
 
-.post__actions {
-    text-align: right;
+.product__description {
+    text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -33,4 +33,28 @@
         margin-left: auto;
         margin-right: auto;
     }
+}
+
+.card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.card__header,
+.card__content {
+    padding: 1rem;
+}
+
+.card__header h1,
+.card__content h1,
+.card__content h2,
+.card__content p {
+    margin: 0;
+}
+
+.card__image {
+    width: 100%;
+}
+
+.card__image img {
+    width: 100%;
 }

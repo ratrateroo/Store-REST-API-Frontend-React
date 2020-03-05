@@ -8,6 +8,11 @@
   text-decoration: none;
 }
 
+.button.button--justlink {
+  background: none;
+  color: none;
+}
+
 .button:focus {
   outline: none;
 }
