@@ -193,11 +193,12 @@ class Feed extends Component {
       })
       .then(resData => {
         console.log(resData);
+        console.log(resData.post.creator.firstname);
         const post = {
           _id: resData.post._id,
           title: resData.post.title,
           content: resData.post.content,
-          creator: resData.creator.name,
+          creator: resData.post.creator.firstname,
           createdAt: resData.post.createdAt
         };
         this.setState(prevState => {
