@@ -10,6 +10,7 @@ import ErrorHandler from "./components/ErrorHandler/ErrorHandler";
 import FeedPage from "./pages/Feed/Feed";
 
 import ProductsPage from "./pages/Products/Products";
+import MyProducts from "./pages/Shop/MyProducts/MyProducts";
 
 import SinglePostPage from "./pages/Feed/SinglePost/SinglePost";
 import LoginPage from "./pages/Auth/Login";
@@ -235,6 +236,14 @@ class App extends Component {
             exact
             render={props => (
               <FeedPage userId={this.state.userId} token={this.state.token} />
+            )}
+          />
+
+          <Route
+            path="/my-products"
+            exact
+            render={props => (
+              <MyProducts userId={this.state.userId} token={this.state.token} />
             )}
           />
 
