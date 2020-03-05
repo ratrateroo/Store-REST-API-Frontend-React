@@ -32,9 +32,9 @@ class MyProducts extends Component {
 
   componentDidMount() {
     fetch("http://localhost:8080/shop/myproducts", {
-      // headers: {
-      //   Authorization: "Bearer " + this.props.token
-      // }
+      headers: {
+        Authorization: "Bearer " + this.props.token
+      }
     })
       .then(res => {
         if (res.status !== 200) {
@@ -64,10 +64,10 @@ class MyProducts extends Component {
       page--;
       this.setState({ productPage: page });
     }
-    fetch("http://localhost:8080/shop/products?page=" + page, {
-      // headers: {
-      //   Authorization: "Bearer " + this.props.token
-      // }
+    fetch("http://localhost:8080/shop/myproducts?page=" + page, {
+      headers: {
+        Authorization: "Bearer " + this.props.token
+      }
     })
       .then(res => {
         if (res.status !== 200) {
