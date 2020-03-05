@@ -66,12 +66,7 @@ const navigationItems = props => {
               {item.text}
             </NavLink>
           </li>
-        )),
-      props.isAuth && (
-        <li className="navigation__link" key="logout">
-          <button onClick={props.onLogout}>Logout</button>
-        </li>
-      )
+        ))
     ];
   } else {
     navs = [
@@ -95,12 +90,7 @@ const navigationItems = props => {
               {item.text}
             </NavLink>
           </li>
-        )),
-      props.isAuth && (
-        <li className="navigation__link" key="logout">
-          <button onClick={props.onLogout}>Logout</button>
-        </li>
-      )
+        ))
     ];
   }
 
