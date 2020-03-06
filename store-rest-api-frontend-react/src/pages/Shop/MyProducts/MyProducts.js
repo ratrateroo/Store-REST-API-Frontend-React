@@ -10,18 +10,7 @@ import "./MyProducts.css";
 class MyProducts extends Component {
   state = {
     //isEditing: false,
-    products: [
-      {
-        _id: 123,
-        title: "product1",
-        price: 100,
-        description: "good condition",
-        imageUrl:
-          "https://media.cntraveler.com/photos/5c6429aa9189f70d8058705c/master/w_820,c_limit/Laucala%2520Island-2.jpg",
-        seller: "Mark",
-        postedOn: "2020-03-05T11:23:42.748+00:00"
-      }
-    ],
+    products: [],
     totalProducts: 0,
     editProduct: null,
     status: "",
@@ -126,8 +115,8 @@ class MyProducts extends Component {
                 <Product
                   key={product._id}
                   id={product._id}
-                  seller={product.seller}
-                  postedOn={new Date(product.postedOn).toLocaleDateString(
+                  seller={product.seller.firstname}
+                  postedOn={new Date(product.createdAt).toLocaleDateString(
                     "en-US"
                   )}
                   title={product.title}

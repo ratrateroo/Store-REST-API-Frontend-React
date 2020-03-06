@@ -13,9 +13,10 @@ const product = props => (
     </div>
     <div className="card__content">
       <h2 className="product__price">${props.price}</h2>
-      <p className="product__description">
-        Posted by {props.seller} on {props.postedOn}: {props.description}
+      <p>
+        Posted by {props.seller} on <span>{props.postedOn}</span>
       </p>
+      <p className="product__description">{props.description}</p>
     </div>
   </article>
 );

@@ -153,7 +153,7 @@ class AddProduct extends Component {
     };
     this.props.onFinishEdit(post);
     this.setState({
-      postForm: POST_FORM,
+      productForm: PRODUCT_FORM,
       formIsValid: false,
       imagePreview: null
     });
@@ -174,7 +174,7 @@ class AddProduct extends Component {
     formData.append("description", productData.description);
 
     let url = "http://localhost:8080/shop/addproduct";
-    let method = "POST";
+    let method = "PUT";
 
     fetch(url, {
       method: method,
@@ -193,78 +193,85 @@ class AddProduct extends Component {
         console.log(resData);
 
         const productData = {
-          _id: resData.post._id,
-          title: resData.post.title,
-          content: resData.post.content,
-          creator: resData.post.creator.name,
-          createdAt: resData.post.createdAt
+          _id: resData.product._id,
+          title: resData.product.title,
+          price: resData.product.price,
+          description: resData.product.description,
+          seller: resData.product.seller.name,
+          createdAt: resData.product.createdAt
         };
-        this.setState(prevState => {
-          return {
-            isEditing: false,
-            editPost: null,
-            editLoading: false
-          };
-        });
-      });
-  };
-
-  finishEditHandler = postData => {
-    this.setState({
-      editLoading: true
-    });
-    const formData = new FormData();
-    formData.append("title", postData.title);
-    formData.append("content", postData.content);
-    formData.append("image", postData.image);
-    let url = "http://localhost:8080/feed/post";
-    let method = "POST";
-    if (this.state.editPost) {
-      url = "http://localhost:8080/feed/post/" + this.state.editPost._id;
-      method = "PUT";
-    }
-
-    fetch(url, {
-      method: method,
-      body: formData,
-      headers: {
-        Authorization: "Bearer " + this.props.token
-      }
-    })
-      .then(res => {
-        if (res.status !== 200 && res.status !== 201) {
-          throw new Error("Creating or editing a post failed!");
-        }
-        return res.json();
-      })
-      .then(resData => {
-        console.log(resData);
-        console.log(resData.post.creator.firstname);
-        const post = {
-          _id: resData.post._id,
-          title: resData.post.title,
-          content: resData.post.content,
-          creator: resData.post.creator.name,
-          createdAt: resData.post.createdAt
-        };
-        this.setState(prevState => {
-          return {
-            isEditing: false,
-            editPost: null,
-            editLoading: false
-          };
+        this.setState({
+          productForm: PRODUCT_FORM,
+          formIsValid: false,
+          imagePreview: null
         });
       })
       .catch(err => {
         console.log(err);
         this.setState({
-          isEditing: false,
-          editPost: null,
-          editLoading: false,
-          error: err
+          productForm: PRODUCT_FORM,
+          formIsValid: false,
+          imagePreview: null
         });
       });
   };
+
+  //   finishEditHandler = postData => {
+  //     this.setState({
+  //       editLoading: true
+  //     });
+  //     const formData = new FormData();
+  //     formData.append("title", postData.title);
+  //     formData.append("content", postData.content);
+  //     formData.append("image", postData.image);
+  //     let url = "http://localhost:8080/feed/post";
+  //     let method = "POST";
+  //     if (this.state.editPost) {
+  //       url = "http://localhost:8080/feed/post/" + this.state.editPost._id;
+  //       method = "PUT";
+  //     }
+
+  //     fetch(url, {
+  //       method: method,
+  //       body: formData,
+  //       headers: {
+  //         Authorization: "Bearer " + this.props.token
+  //       }
+  //     })
+  //       .then(res => {
+  //         if (res.status !== 200 && res.status !== 201) {
+  //           throw new Error("Creating or editing a post failed!");
+  //         }
+  //         return res.json();
+  //       })
+  //       .then(resData => {
+  //         console.log(resData);
+  //         console.log(resData.post.creator.firstname);
+  //         const post = {
+  //           _id: resData.post._id,
+  //           title: resData.post.title,
+  //           content: resData.post.content,
+  //           creator: resData.post.creator.name,
+  //           createdAt: resData.post.createdAt
+  //         };
+  //         this.setState(prevState => {
+  //           return {
+  //             isEditing: false,
+  //             editPost: null,
+  //             editLoading: false
+  //           };
+  //         });
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //         this.setState({
+  //           isEditing: false,
+  //           editPost: null,
+  //           editLoading: false,
+  //           error: err
+  //         });
+  //       });
+  //   };
 
   render() {
     return (

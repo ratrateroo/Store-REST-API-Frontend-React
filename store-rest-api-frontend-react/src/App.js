@@ -225,20 +225,20 @@ class App extends Component {
           render={props => <ProductsPage {...props} />}
         />
 
-        <Redirect to="/" />
+        <Redirect to="/my-products" />
       </Switch>
     );
 
     if (this.state.isAuth) {
       routes = (
         <Switch>
-          <Route
+          {/* <Route
             path="/"
             exact
             render={props => (
               <FeedPage userId={this.state.userId} token={this.state.token} />
             )}
-          />
+          /> */}
 
           <Route
             path="/my-products"
@@ -266,7 +266,7 @@ class App extends Component {
               />
             )}
           />
-          <Redirect to="/" />
+          <Redirect to="/my-products" />
         </Switch>
       );
     }
