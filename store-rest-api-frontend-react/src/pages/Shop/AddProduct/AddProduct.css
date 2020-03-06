@@ -1,0 +1,10 @@
+.addproduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-product__preview-image {
+    width: 15rem;
+    height: 7rem;
+}
