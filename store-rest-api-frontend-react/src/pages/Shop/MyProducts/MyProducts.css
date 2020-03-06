@@ -4,9 +4,21 @@
 }
 
 .main-area .products {
+    top: 50px;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100vw;
+}
+
+.main-area .products .paginator {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
 }

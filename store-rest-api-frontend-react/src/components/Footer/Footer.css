@@ -3,6 +3,9 @@
     display: flex;
     justify-content: center;
     background: var(--dark-blue);
+    width: 100%;
+    align-self: end;
+
 }
 
 .footer__links {

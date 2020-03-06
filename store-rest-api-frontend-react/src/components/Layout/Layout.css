@@ -1,9 +1,10 @@
 .main-area {
   display: flex;
-  position: fixed;
+
   justify-content: center;
   align-items: center;
   flex-direction: row;
   width: 100vw;
-  top: 100px;
+  height: 100%;
+
 }

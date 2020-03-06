@@ -23,9 +23,15 @@ body {
   min-height: 100%;
   font-family: 'Work Sans', sans-serif;
   min-height: 120vh;
+
+
+}
+
+#root {
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "main-header"
     "main-area"
     "main-footer";
+  min-height: 120vh;
 }
