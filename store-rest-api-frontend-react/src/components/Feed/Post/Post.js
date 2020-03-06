@@ -28,17 +28,6 @@ const post = props => (
         </Button>
       </div>
     </article>
-
-    <article className="product">
-      <Link to={props.id}>
-        <header className="product__header">
-          <h3 className="product__meta">
-            Posted by {props.author} on {props.date}
-          </h3>
-          <h1 className="product_title">{props.title}</h1>
-        </header>
-      </Link>
-    </article>
   </div>
 );
 

@@ -11,6 +11,7 @@ import FeedPage from "./pages/Feed/Feed";
 
 import ProductsPage from "./pages/Products/Products";
 import MyProducts from "./pages/Shop/MyProducts/MyProducts";
+import AddProduct from "./pages/Shop/MyProducts/AddProduct";
 
 import SinglePostPage from "./pages/Feed/SinglePost/SinglePost";
 import LoginPage from "./pages/Auth/Login";
@@ -244,6 +245,14 @@ class App extends Component {
             exact
             render={props => (
               <MyProducts userId={this.state.userId} token={this.state.token} />
+            )}
+          />
+
+          <Route
+            path="/add-products"
+            exact
+            render={props => (
+              <AddProduct userId={this.state.userId} token={this.state.token} />
             )}
           />
 
