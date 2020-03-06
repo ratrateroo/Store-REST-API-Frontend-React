@@ -112,7 +112,7 @@ class Products extends Component {
           onFinishEdit={this.finishEditHandler}
         /> */}
 
-        <section className="products">
+        <section className="product-list">
           {this.state.productsLoading && (
             <div style={{ textAlign: "center", marginTop: "2rem" }}>
               <Loader />
@@ -133,8 +133,8 @@ class Products extends Component {
                 <Product
                   key={product._id}
                   id={product._id}
-                  seller={product.seller}
-                  postedOn={new Date(product.postedOn).toLocaleDateString(
+                  seller={product.seller.firstname}
+                  postedOn={new Date(product.createdAt).toLocaleDateString(
                     "en-US"
                   )}
                   title={product.title}

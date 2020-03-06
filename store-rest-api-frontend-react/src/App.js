@@ -197,7 +197,7 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route
-          path="/"
+          path="/login"
           exact
           render={props => (
             <LoginPage
@@ -258,6 +258,7 @@ class App extends Component {
 
           <Route
             path="/:postId"
+            exact
             render={props => (
               <SinglePostPage
                 {...props}

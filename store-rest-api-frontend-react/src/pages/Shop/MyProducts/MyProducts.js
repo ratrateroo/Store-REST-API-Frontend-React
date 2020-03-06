@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import openSocket from "socket.io-client";
 
 import Product from "../../../components/Products/Product/Product";
@@ -112,20 +113,22 @@ class MyProducts extends Component {
             //currentPage={this.state.postPage}
             >
               {this.state.products.map(product => (
-                <Product
-                  key={product._id}
-                  id={product._id}
-                  seller={product.seller.firstname}
-                  postedOn={new Date(product.createdAt).toLocaleDateString(
-                    "en-US"
-                  )}
-                  title={product.title}
-                  image={"http://localhost:8080/" + product.imageUrl}
-                  description={product.description}
-                  price={product.price}
-                  // onStartEdit={this.startEditPostHandler.bind(this, post._id)}
-                  // onDelete={this.deletePostHandler.bind(this, post._id)}
-                />
+                <Link to={"/my-products/" + product._id} key={product._id}>
+                  <Product
+                    key={product._id}
+                    id={product._id}
+                    seller={product.seller.firstname}
+                    postedOn={new Date(product.createdAt).toLocaleDateString(
+                      "en-US"
+                    )}
+                    title={product.title}
+                    image={"http://localhost:8080/" + product.imageUrl}
+                    description={product.description}
+                    price={product.price}
+                    // onStartEdit={this.startEditPostHandler.bind(this, post._id)}
+                    // onDelete={this.deletePostHandler.bind(this, post._id)}
+                  />
+                </Link>
               ))}
             </Paginator>
           )}

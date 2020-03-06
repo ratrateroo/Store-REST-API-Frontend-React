@@ -1,0 +1,12 @@
+.product-list {
+
+    width: 100vw;
+}
+
+.product-list .paginator {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

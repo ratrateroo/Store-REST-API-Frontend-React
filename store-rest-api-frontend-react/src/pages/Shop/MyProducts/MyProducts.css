@@ -1,0 +1,12 @@
+.main-area .products a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-area .products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+}
